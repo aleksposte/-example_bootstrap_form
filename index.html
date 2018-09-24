@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>Форма для подачи заявок на модули</title>
+</head>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+<body>
+
+    <div id="layout">
+        <div id="window">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <div  class="modal-title" id="form_result"></div>
+                </div>
+
+                <div class="modal-body">
+                    <!-- form -->
+                    <div class="form">
+                        <form action="" id="form">
+                            <div class="form-group">
+                                <label for="name">Имя пользователя:</label>
+                                <input id="name" class="form-control" name="UserName" required type="text" placeholder="Имя">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Серийный номер:</label>
+                                <input id="name" class="form-control" name="DeviceSerialNumber" required type="text" placeholder="Серийный номер прибора">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Код ключа:</label>
+                                <input id="name" class="form-control" name="Code" required type="text" placeholder="01010101">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Модуль:</label>
+                                <div>
+                                    <select class="form-group" name="ExpertModules"required>
+                                        <option value="Меридианы">Меридианы</option>
+                                        <option value="Нидана">Нидана</option>
+                                        <option value="Биоэнергетика">Биоэнергетика</option>
+                                        <option value="Музыка сердца">Музыка сердца</option>
+                                        <option value="Динамика">Динамика</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Ваш E-mail:</label>
+                                <input id="email" class="form-control" name="E-mail" required type="text" placeholder="ivanov@email.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Ваш телефон:</label>
+                                <input id="phone" class="form-control" name="PhoneNumber" required type="text" placeholder="+7 (800) 000-00-00">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Текст сообщения:</label>
+                                <textarea id="message" class="form-control" required name="Comments" rows="4"></textarea>
+                            </div>
+
+
+                            <div class="form_input">
+                                <div class="left_coll">
+                                    <input id="submit" class="btn btn-success order" type="submit" value="Отправить">
+                                </div>
+                                <div class="right_coll">
+                                    <a href="#" class="btn btn-danger reset">Отменить</a>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- end form -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="my-5 mx-auto text-center">
+            <a href="#layout" class="btn btn-dark btn-lg">Заказ</a>
+        </div>
+    </div>
+
+    <script>
+        $("#submit").click(function() {
+            var name = $('input[name=UserName]').val();
+            var number = $('input[name=DeviceSerialNumber]').val();
+            var code = $('input[name=Code]').val();
+            var modules = $('input[name=ExpertModules]').val();
+            var email = $('input[name=E-mail]').val();
+            var phone = $('input[name=PhoneNumber]').val();
+            var comments = $('input[name=Comments]').val();
+
+            var request = true;
+
+            if(request) {
+
+                data = {
+                    'name': name,
+                    'number': number,
+                    'code': code,
+                    'modules': modules,
+                    'email': email,
+                    'phone': phone,
+                    'comments': comments,
+                };
+
+                $.post('send.php', data, function(answer) {
+                    result = '<div style="color:#D80018;">'+answer_serv.text+'</div>';
+                    $("#form_result").hide().html(result).slideDown();
+                }, 'json');
+            }
+        });
+    </script>
+</body>

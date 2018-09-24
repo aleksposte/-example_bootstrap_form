@@ -1,0 +1,85 @@
+/* window */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: Circe-bold;
+    src: url(../fonts/Circe-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: Circe;
+    src: url(../fonts/Circe-Regular.ttf);
+}
+
+body {
+    font-family: Circe;
+    font-size: 14px;
+}
+
+#layout {
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+#layout:target {
+    display: block;
+}
+
+#window {
+  width: 300px;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background: #fff;
+}
+
+/* form */
+.form p {
+    float: left;
+}
+
+.form .field {
+    margin: 5px 10px;
+    float: right;
+}
+/* end form */
+
+/* colls */
+.left_coll {
+    width: 40%;
+    height: 50px;
+    float: left;
+
+}
+.right_coll {
+    width: 60%;
+    height: 50px;
+    float: left;
+}
+
+.left_coll p {
+    margin-top: 4px;
+}
+/* end colls */
+
+/* .order {
+    background: #EF4030;
+}
+
+.reset {
+    background: #EFEFEF;
+} */
+
+/* end window */
