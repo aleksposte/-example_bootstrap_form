@@ -1,6 +1,6 @@
 <?php
 if($_POST){
-    $to_Email = "aleks.poste@gmail.com";
+    $to_Email = "mail@vedapulse.com";
     $subject = 'Заявка на модули '.$_POST["name"];
 
     if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
